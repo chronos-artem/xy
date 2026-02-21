@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>张三 · 学术主页（占位版）</title>
+  <!-- 字体 & 图标库，模仿 Academic Pages 干净简洁的风格 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #e9ecef;  /* 柔和背景 */
+      font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    /* 双栏网格 — 左侧个人信息，右侧简介 */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 0;
+    }
+
+    /* ========== 左侧边栏 (个人信息卡片) ========== */
+    .sidebar {
+      background: #f8f9fa;  /* 极浅灰，区分右侧 */
+      padding: 2.2rem 2rem;
+      border-right: 1px solid rgba(0,0,0,0.05);
+    }
+
+    /* 头像占位 (假数据: ZS 首字母) */
+    .avatar-placeholder {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 1.5rem auto;
+      background: #2c3e50;       /* 深蓝灰 */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3.5rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    }
+
+    .name {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.25rem;
+      color: #1a2634;
+    }
+
+    .subhead {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #4a6fa5;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px dashed #cbd5e0;
+      padding-bottom: 0.75rem;
+    }
+
+    .institution {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .institution i {
+      color: #4a6fa5;
+      width: 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    /* 联系信息列表 (图标+文本) */
+    .contact-list {
+      list-style: none;
+      margin: 1.5rem 0 1.2rem 0;
+    }
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 0.9rem;
+      font-size: 0.95rem;
+      color: #2d3c4b;
+      word-break: break-word;
+    }
+    .contact-list li i {
+      width: 1.4rem;
+      color: #4a6fa5;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #2c3e50;
+      margin: 1.8rem 0 1rem 0;
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 0.4rem;
+    }
+
+    /* 社交/学术链接 (假条目) */
+    .social-links {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+    .social-links li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+    }
+    .social-links li i {
+      width: 1.4rem;
+      color: #4a6fa5;
+      font-size: 1.1rem;
+    }
+    .social-links li span {
+      color: #2d3c4b;
+    }
+    .social-links li span i {  /* 占位小图标，无实际链接 */
+      font-style: normal;
+      color: #6c757d;
+    }
+
+    .cv-link {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.9rem;
+    }
+    .cv-link i {
+      margin-right: 8px;
+      color: #4a6fa5;
+    }
+
+    /* ========== 右侧主要内容 (个人简介) ========== */
+    .main-content {
+      background: white;
+      padding: 2.5rem 2.5rem;
+    }
+
+    .about-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1e2a36;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.3px;
+      border-left: 6px solid #4a6fa5;
+      padding-left: 1.2rem;
+    }
+
+    .about-text p {
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+      color: #2c3e50;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 占位高亮关键词 */
+    .keyword {
+      background: #edf2f7;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      font-weight: 500;
+      color: #1e3c5c;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 1.8rem 0 1.2rem 0;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: #7f8c8d;
+      margin-top: 2.5rem;
+      border-top: 1px dashed #d0d7dd;
+      padding-top: 1.5rem;
+      text-align: center;
+    }
+    .footer-note i {
+      color: #a0aec0;
+      margin: 0 4px;
+    }
+
+    /* 响应式：小屏幕左侧在上方 */
+    @media (max-width: 700px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        border-right: none;
+        border-bottom: 1px solid #dee2e6;
+      }
+      .avatar-placeholder {
+        width: 110px;
+        height: 110px;
+        font-size: 3rem;
+      }
+      .main-content {
+        padding: 2rem 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="main-grid">
+    <!-- ===== 左侧：个人信息（假数据，您可自由替换） ===== -->
+    <aside class="sidebar">
+      <!-- 头像占位：圆形 + 姓名缩写 (张三 -> ZS) -->
+      <div class="avatar-placeholder" aria-label="头像占位">ZS</div>
+
+      <h1 class="name">张三</h1>
+      <div class="subhead">博士研究生 · 人工智能方向</div>
+      <div class="institution">
+        <i class="fas fa-university"></i> 清华大学 计算机科学与技术系
+      </div>
+
+      <!-- 联系方式列表 (假数据) -->
+      <ul class="contact-list">
+        <li><i class="fas fa-envelope"></i> san.zhang@tsinghua.edu.cn</li>
+        <li><i class="fas fa-phone-alt"></i> +86 10 6278 1234</li>
+        <li><i class="fas fa-map-marker-alt"></i> 北京市海淀区清华大学 100084</li>
+        <li><i class="fas fa-globe"></i> www.zhanglab.com/~san (占位)</li>
+      </ul>
+
+      <!-- 社交/学术链接 (占位，均为假信息) -->
+      <div class="section-title">Links</div>
+      <ul class="social-links">
+        <li><i class="fab fa-github"></i> <span>github.com/zhang-san</span></li>
+        <li><i class="fab fa-twitter"></i> <span>@zhang_san_ai</span></li>
+        <li><i class="fas fa-graduation-cap"></i> <span>Google Scholar: 张三 (占位)</span></li>
+        <li><i class="fab fa-orcid"></i> <span>ORCID: 0000-0002-1825-0097</span></li>
+      </ul>
+
+      <!-- CV 占位链接 (不可点击，仅供样式) -->
+      <div class="cv-link">
+        <i class="fas fa-file-pdf"></i> Curriculum Vitae (PDF 占位) · 更新于 2025.02
+      </div>
+
+      <!-- 提醒：此处所有内容均为假数据，请自行替换 -->
+      <div style="font-size:0.75rem; color:#95a5a6; margin-top: 2rem; border-top: 1px dotted #ccd7e4; padding-top: 0.8rem;">
+        <i class="fas fa-pen"></i> 左侧信息为临时占位，您可替换为真实姓名、邮箱、社交链接等。
+      </div>
+    </aside>
+
+    <!-- ===== 右侧：个人简介（假内容，仅供占位） ===== -->
+    <main class="main-content">
+      <h2 class="about-title">关于我 · 简介</h2>
+      <div class="about-text">
+        <p>
+          我是清华大学计算机系<span class="keyword">人工智能</span>方向的博士研究生，师从王华教授。
+          我的研究聚焦于<span class="keyword">机器学习</span>、<span class="keyword">自然语言处理</span>以及大模型的效率优化。
+          在此之前，我于北京大学智能科学系获得学士学位（2020年），并在微软亚洲研究院实习。
+        </p>
+        <p>
+          目前的研究课题包括低资源场景下的模型微调、知识蒸馏以及可解释性分析。
+          我已经在 NeurIPS、ICML、ACL 等会议/期刊发表第一作者论文 4 篇，并担任 ICML 2024、EMNLP 2024 的审稿人。
+          我的长期目标是通过高效的算法降低AI应用的门槛，同时探索语言模型的推理机制。
+        </p>
+        <p>
+          <i class="fas fa-flask" style="color:#4a6fa5; margin-right:6px;"></i>
+          <strong>近期动态：</strong> 一篇关于参数高效微调的论文被 ICLR 2025 接收；获2024年国家奖学金；合作组织清华大学 NLP 读书会。
+          （注：以上所有内容均为占位描述，请您替换为自己的真实介绍。）
+        </p>
+      </div>
+
+      <!-- 一条分割线，下方可以放小点 (可删除) -->
+      <hr>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: space-between; font-size:0.95rem; color: #3b4b5e;">
+        <div style="display: flex; align-items: center; gap: 5px;"><i class="fas fa-tag" style="color:#4a6fa5;"></i> 研究关键词：LLM · 知识蒸馏 · 高效微调</div>
+        <div style="display: flex; align-items: center; gap: 5px;"><i class="far fa-clock" style="color:#4a6fa5;"></i> 办公室：清华大学 FIT 楼 3-222</div>
+      </div>
+
+      <!-- 页脚占位 (完全可替换) -->
+      <div class="footer-note">
+        <i class="far fa-copyright"></i> 张三 (占位) · 2025 · 由 Academic Pages 风格启发 · 纯静态 HTML
+      </div>
+    </main>
+  </div>
+  <!-- 双栏结束 -->
+</div>
+<!-- 页面结束 · 所有个人信息均为假数据，待您自行修改 -->
+</body>
+</html>
