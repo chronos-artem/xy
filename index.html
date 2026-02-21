@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>张三 · 学术主页（占位版）</title>
-  <!-- 字体 & 图标库，模仿 Academic Pages 干净简洁的风格 -->
+  <title>xy · 学术主页</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -17,8 +16,8 @@
     }
 
     body {
-      background: #e9ecef;  /* 柔和背景 */
-      font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #e9ecef;
+      font-family: 'Lato', sans-serif;
       line-height: 1.6;
       color: #2c3e50;
       padding: 2rem 1rem;
@@ -38,26 +37,24 @@
       overflow: hidden;
     }
 
-    /* 双栏网格 — 左侧个人信息，右侧简介 */
     .main-grid {
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 0;
     }
 
-    /* ========== 左侧边栏 (个人信息卡片) ========== */
+    /* 左侧边栏 */
     .sidebar {
-      background: #f8f9fa;  /* 极浅灰，区分右侧 */
+      background: #f8f9fa;
       padding: 2.2rem 2rem;
       border-right: 1px solid rgba(0,0,0,0.05);
     }
 
-    /* 头像占位 (假数据: ZS 首字母) */
     .avatar-placeholder {
       width: 130px;
       height: 130px;
       margin: 0 auto 1.5rem auto;
-      background: #2c3e50;       /* 深蓝灰 */
+      background: #2c3e50;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -100,10 +97,9 @@
       font-size: 0.9rem;
     }
 
-    /* 联系信息列表 (图标+文本) */
     .contact-list {
       list-style: none;
-      margin: 1.5rem 0 1.2rem 0;
+      margin: 1.5rem 0 0 0;
     }
     .contact-list li {
       display: flex;
@@ -121,54 +117,7 @@
       text-align: center;
     }
 
-    .section-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #2c3e50;
-      margin: 1.8rem 0 1rem 0;
-      border-bottom: 2px solid #dee2e6;
-      padding-bottom: 0.4rem;
-    }
-
-    /* 社交/学术链接 (假条目) */
-    .social-links {
-      list-style: none;
-      margin-top: 0.5rem;
-    }
-    .social-links li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 0.8rem;
-      font-size: 0.95rem;
-    }
-    .social-links li i {
-      width: 1.4rem;
-      color: #4a6fa5;
-      font-size: 1.1rem;
-    }
-    .social-links li span {
-      color: #2d3c4b;
-    }
-    .social-links li span i {  /* 占位小图标，无实际链接 */
-      font-style: normal;
-      color: #6c757d;
-    }
-
-    .cv-link {
-      margin-top: 2rem;
-      padding-top: 1rem;
-      border-top: 1px solid #e2e8f0;
-      font-size: 0.9rem;
-    }
-    .cv-link i {
-      margin-right: 8px;
-      color: #4a6fa5;
-    }
-
-    /* ========== 右侧主要内容 (个人简介) ========== */
+    /* 右侧主内容 */
     .main-content {
       background: white;
       padding: 2.5rem 2.5rem;
@@ -190,39 +139,7 @@
       color: #2c3e50;
     }
 
-    .about-text p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* 占位高亮关键词 */
-    .keyword {
-      background: #edf2f7;
-      padding: 0.1rem 0.3rem;
-      border-radius: 4px;
-      font-weight: 500;
-      color: #1e3c5c;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid #e2e8f0;
-      margin: 1.8rem 0 1.2rem 0;
-    }
-
-    .footer-note {
-      font-size: 0.85rem;
-      color: #7f8c8d;
-      margin-top: 2.5rem;
-      border-top: 1px dashed #d0d7dd;
-      padding-top: 1.5rem;
-      text-align: center;
-    }
-    .footer-note i {
-      color: #a0aec0;
-      margin: 0 4px;
-    }
-
-    /* 响应式：小屏幕左侧在上方 */
+    /* 响应式 */
     @media (max-width: 700px) {
       .main-grid {
         grid-template-columns: 1fr;
@@ -231,62 +148,39 @@
         border-right: none;
         border-bottom: 1px solid #dee2e6;
       }
-      .avatar-placeholder {
-        width: 110px;
-        height: 110px;
-        font-size: 3rem;
-      }
-      .main-content {
-        padding: 2rem 1.8rem;
-      }
     }
   </style>
 </head>
 <body>
 <div class="page">
   <div class="main-grid">
-    <!-- ===== 左侧：个人信息（假数据，您可自由替换） ===== -->
+    <!-- 左侧个人信息（假数据，您可自由替换） -->
     <aside class="sidebar">
-      <!-- 头像占位：圆形 + 姓名缩写 (张三 -> ZS) -->
-      <div class="avatar-placeholder" aria-label="头像占位">XY</div>
-
+      <div class="avatar-placeholder">XY</div>
       <h1 class="name">熊杨</h1>
       <div class="subhead">本科生·计算机科学与技术专业</div>
       <div class="institution">
         <i class="fas fa-university"></i> 湖南科技大学 计算机科学与工程学院
       </div>
-
-      <!-- 联系方式列表 (假数据) -->
       <ul class="contact-list">
         <li><i class="fas fa-envelope"></i> yangxiong@mail.hnust.edu.cn</li>
-        <li><i class="fas fa-phone-alt"></i> +86 197 2036 0296</li>
+        <li><i class="fas fa-phone-alt"></i> 197 2036 0296</li>
+        <li><i class="fas fa-map-marker-alt"></i> 湘潭雨湖区湖南科技大学 100084</li>
       </ul>
+      <!-- 提示：此处已删除社交链接和CV占位，如需添加可自行插入 -->
+    </aside>
 
-      <!-- 社交/学术链接 (占位，均为假信息) -->
-      
-
-      <!-- CV 占位链接 (不可点击，仅供样式) -->
-      
-
-      <!-- 提醒：此处所有内容均为假数据，请自行替换 -->
-      
-
-    <!-- ===== 右侧：个人简介（假内容，仅供占位） ===== -->
+    <!-- 右侧个人简介（只保留一句） -->
     <main class="main-content">
       <h2 class="about-title">关于我 · 简介</h2>
       <div class="about-text">
         <p>
-          我是湖南科技大学计算机科学与工程学院<span class="keyword">计算机科学与技术专业</span>11班的熊杨。
+          我是湖南科技大学计算机科学与工程学院计算机科学与技术专业的本科生。
         </p>
       </div>
-
-      <!-- 一条分割线，下方可以放小点 (可删除) -->
-
-      <!-- 页脚占位 (完全可替换) -->
-      
-  <!-- 双栏结束 -->
-
-<!-- 页面结束 · 所有个人信息均为假数据，待您自行修改 -->
+    </main>
+  </div>  <!-- 结束 .main-grid -->
+  <!-- 页面底部无多余内容 -->
+</div>  <!-- 结束 .page -->
 </body>
 </html>
-
